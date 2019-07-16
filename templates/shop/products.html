@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<h3 class="text-center">Browse your favorite goods...</h3>
+<div class="row d-flex justify-content-center py-3">
+    {% for product in products %}
+        <div class="col-sm-3 m-2">
+            <div class="card" style="width: 18rem;">
+              <div class="card-body">
+                  <h5 class="card-title">{{ product.name }}</h5>
+                  <h6 class="card-subtitle mb-2 badge badge-success">{{ product.price }}-tk</h6>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+
+                  {% if product in user.profile.orders.all %}
+                      <a href="#" class="card-link text-info">You Got It</a>
+                  {% elif product in current_order_products %}
+                      <a href="#" class="card-link text-success">Go to cart</a>
+                      <p>{{ product }}</p>
+                  {% else %}
+                      <a href="{% url 'cart:add_to_cart' product.id %}" class="card-link text-danger border p-1 bg-warning">ADD TO CART</a>
+                  {% endif %}
+              </div>
+            </div>
+        </div>
+    {% endfor %}
+
+</div>
+
+{% endblock content %}
