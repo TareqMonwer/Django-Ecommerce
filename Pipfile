@@ -9,6 +9,7 @@ verify_ssl = true
 django = "*"
 pillow = "*"
 celery = "*"
+flower = "*"
 
 [requires]
 python_version = "3.8"
