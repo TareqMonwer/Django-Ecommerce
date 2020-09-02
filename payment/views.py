@@ -26,7 +26,7 @@ def payment_process(request):
             # Mark order as paid
             order.paid = True
             # Store the unique transaction id
-            order.transaction_id = result.transaction.id
+            order.braintree_id = result.transaction.id
             order.save()
             return redirect('payment:done')
         else:
