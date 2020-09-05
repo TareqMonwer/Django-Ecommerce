@@ -12,6 +12,7 @@ celery = "*"
 flower = "*"
 braintree = "==3.59.0"
 django-environ = "*"
+weasyprint = "==51"
 
 [requires]
 python_version = "3.8"
